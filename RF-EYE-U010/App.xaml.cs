@@ -23,5 +23,40 @@ namespace RF_EYE_U010
             CharSet = CharSet.Auto, ExactSpelling = false,
             CallingConvention = CallingConvention.StdCall)]
         public static extern Int16 rf_exit(IntPtr icdev);
+
+        [DllImport("mwrf32.dll", EntryPoint = "rf_card", SetLastError = true,
+            CharSet = CharSet.Auto, ExactSpelling = false,
+            CallingConvention = CallingConvention.StdCall)]
+        public static extern Int16 rf_card(IntPtr icdev, byte mode, byte[] snr);
+
+        [DllImport("mwrf32.dll", EntryPoint = "rf_authentication", SetLastError = true,
+            CharSet = CharSet.Auto, ExactSpelling = false,
+            CallingConvention = CallingConvention.StdCall)]
+        public static extern Int16 rf_authentication(IntPtr icdev, byte mode, byte secnr);
+
+        [DllImport("mwrf32.dll", EntryPoint = "rf_read", SetLastError = true,
+            CharSet = CharSet.Auto, ExactSpelling = false,
+            CallingConvention = CallingConvention.StdCall)]
+        public static extern Int16 rf_read(IntPtr icdev, byte blocknr, byte[] databuff);
+
+        [DllImport("mwrf32.dll", EntryPoint = "rf_read_hex", SetLastError = true,
+            CharSet = CharSet.Auto, ExactSpelling = false,
+            CallingConvention = CallingConvention.StdCall)]
+        public static extern Int16 rf_read_hex(IntPtr icdev, byte blocknr, byte[] databuff);
+
+        [DllImport("mwrf32.dll", EntryPoint = "rf_write", SetLastError = true,
+            CharSet = CharSet.Auto, ExactSpelling = false,
+            CallingConvention = CallingConvention.StdCall)]
+        public static extern Int16 rf_write(IntPtr icdev, byte blocknr, byte[] databuff);
+
+        [DllImport("mwrf32.dll", EntryPoint = "rf_write_hex", SetLastError = true,
+            CharSet = CharSet.Auto, ExactSpelling = false,
+            CallingConvention = CallingConvention.StdCall)]
+        public static extern Int16 rf_write_hex(IntPtr icdev, byte blocknr, byte[] databuff);
+
+        [DllImport("mwrf32.dll", EntryPoint = "hex_a", SetLastError = true,
+            CharSet = CharSet.Auto, ExactSpelling = false,
+            CallingConvention = CallingConvention.StdCall)]
+        public static extern Int16 hex_a(byte[] hex, byte[] asc, Int16 len);
     }
 }

@@ -10,7 +10,7 @@
         <Button Content="连接设备" HorizontalAlignment="Left" Margin="30,30,0,0" VerticalAlignment="Top" Width="100" Height="40" FontSize="16" Click="ConnectBtn_Click"/>
         <Button Content="断开设备" HorizontalAlignment="Left" Margin="160,30,0,0" VerticalAlignment="Top" Width="100" Height="40" FontSize="16" Click="DisconnectBtn_Click"/>
         <Label Content="区" HorizontalAlignment="Left" Margin="290,30,0,0" VerticalAlignment="Top" Width="40" Height="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16"/>
-        <ComboBox HorizontalAlignment="Left" Margin="330,30,0,0" VerticalAlignment="Top" Width="60" Height="40" VerticalContentAlignment="Center" FontFamily="Courier New" FontSize="16" SelectedIndex="0">
+        <ComboBox x:Name="cmbSector" HorizontalAlignment="Left" Margin="330,30,0,0" VerticalAlignment="Top" Width="60" Height="40" VerticalContentAlignment="Center" FontFamily="Courier New" FontSize="16" SelectedIndex="0" SelectionChanged="SectorCmb_SelectionChanged">
             <ComboBoxItem Content="0"/>
             <ComboBoxItem Content="1"/>
             <ComboBoxItem Content="2"/>
@@ -29,16 +29,18 @@
             <ComboBoxItem Content="15"/>
         </ComboBox>
         <Label Content="块" HorizontalAlignment="Left" Margin="390,30,0,0" VerticalAlignment="Top" Width="40" Height="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16"/>
-        <ComboBox HorizontalAlignment="Left" Margin="430,30,0,0" VerticalAlignment="Top" Width="60" Height="40" VerticalContentAlignment="Center" FontFamily="Courier New" FontSize="16" SelectedIndex="0">
+        <ComboBox x:Name="cmbBlock" HorizontalAlignment="Left" Margin="430,30,0,0" VerticalAlignment="Top" Width="60" Height="40" VerticalContentAlignment="Center" FontFamily="Courier New" FontSize="16" SelectedIndex="0" SelectionChanged="BlockCmb_SelectionChanged">
             <ComboBoxItem Content="0"/>
             <ComboBoxItem Content="1"/>
             <ComboBoxItem Content="2"/>
+<!--
             <ComboBoxItem Content="3"/>
+-->
         </ComboBox>
-        <Button Content="读取数据" HorizontalAlignment="Left" Margin="30,90,0,0" VerticalAlignment="Top" Width="100" Height="40" FontSize="16"/>
-        <TextBox HorizontalAlignment="Left" Height="40" Margin="160,90,0,0" TextWrapping="Wrap" Text="00000000000000000000000000000000" VerticalAlignment="Top" Width="330" VerticalContentAlignment="Center" FontFamily="Courier New" FontSize="16" MaxLength="32" MaxLines="1"/>
-        <Button Content="写入数据" HorizontalAlignment="Left" Margin="30,150,0,0" VerticalAlignment="Top" Width="100" Height="40" FontSize="16"/>
-        <TextBox HorizontalAlignment="Left" Height="40" Margin="160,150,0,0" TextWrapping="Wrap" Text="00000000000000000000000000000000" VerticalAlignment="Top" Width="330" VerticalContentAlignment="Center" FontFamily="Courier New" FontSize="16" MaxLength="32" MaxLines="1"/>
+        <Button Content="读取数据" HorizontalAlignment="Left" Margin="30,90,0,0" VerticalAlignment="Top" Width="100" Height="40" FontSize="16" Click="ReadDataBtn_Click"/>
+        <TextBox x:Name="txtReadData" HorizontalAlignment="Left" Height="40" Margin="160,90,0,0" TextWrapping="Wrap" Text="00000000000000000000000000000000" VerticalAlignment="Top" Width="330" VerticalContentAlignment="Center" FontFamily="Courier New" FontSize="16" MaxLength="32" MaxLines="1"/>
+        <Button Content="写入数据" HorizontalAlignment="Left" Margin="30,150,0,0" VerticalAlignment="Top" Width="100" Height="40" FontSize="16" Click="WriteDataBtn_Click"/>
+        <TextBox x:Name="txtWriteData" HorizontalAlignment="Left" Height="40" Margin="160,150,0,0" TextWrapping="Wrap" Text="00000000000000000000000000000000" VerticalAlignment="Top" Width="330" VerticalContentAlignment="Center" FontFamily="Courier New" FontSize="16" MaxLength="32" MaxLines="1"/>
         <Button Content="读取信息" HorizontalAlignment="Left" Margin="30,210,0,0" VerticalAlignment="Top" Width="100" Height="40" FontSize="16"/>
         <Label Content="从" HorizontalAlignment="Left" Margin="160,210,0,0" VerticalAlignment="Top" Width="40" Height="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16"/>
         <TextBox HorizontalAlignment="Left" Height="40" Margin="200,210,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="60" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontFamily="Courier New" FontSize="16" MaxLength="4" MaxLines="1"/>
