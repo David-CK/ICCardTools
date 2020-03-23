@@ -5,8 +5,49 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RF_EYE_U010"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="RF-EYE-U010 读写工具" Height="450" Width="800">
     <Grid>
-        
+        <Button Content="连接设备" HorizontalAlignment="Left" Margin="30,30,0,0" VerticalAlignment="Top" Width="100" Height="40" FontSize="16"/>
+        <Button Content="断开设备" HorizontalAlignment="Left" Margin="160,30,0,0" VerticalAlignment="Top" Width="100" Height="40" FontSize="16"/>
+        <Label Content="区" HorizontalAlignment="Left" Margin="290,30,0,0" VerticalAlignment="Top" Width="40" Height="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16"/>
+        <ComboBox HorizontalAlignment="Left" Margin="330,30,0,0" VerticalAlignment="Top" Width="60" Height="40" VerticalContentAlignment="Center" FontFamily="Courier New" FontSize="16" SelectedIndex="0">
+            <ComboBoxItem Content="0"/>
+            <ComboBoxItem Content="1"/>
+            <ComboBoxItem Content="2"/>
+            <ComboBoxItem Content="3"/>
+            <ComboBoxItem Content="4"/>
+            <ComboBoxItem Content="5"/>
+            <ComboBoxItem Content="6"/>
+            <ComboBoxItem Content="7"/>
+            <ComboBoxItem Content="8"/>
+            <ComboBoxItem Content="9"/>
+            <ComboBoxItem Content="10"/>
+            <ComboBoxItem Content="11"/>
+            <ComboBoxItem Content="12"/>
+            <ComboBoxItem Content="13"/>
+            <ComboBoxItem Content="14"/>
+            <ComboBoxItem Content="15"/>
+        </ComboBox>
+        <Label Content="块" HorizontalAlignment="Left" Margin="390,30,0,0" VerticalAlignment="Top" Width="40" Height="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16"/>
+        <ComboBox HorizontalAlignment="Left" Margin="430,30,0,0" VerticalAlignment="Top" Width="60" Height="40" VerticalContentAlignment="Center" FontFamily="Courier New" FontSize="16" SelectedIndex="0">
+            <ComboBoxItem Content="0"/>
+            <ComboBoxItem Content="1"/>
+            <ComboBoxItem Content="2"/>
+            <ComboBoxItem Content="3"/>
+        </ComboBox>
+        <Button Content="读取数据" HorizontalAlignment="Left" Margin="30,90,0,0" VerticalAlignment="Top" Width="100" Height="40" FontSize="16"/>
+        <TextBox HorizontalAlignment="Left" Height="40" Margin="160,90,0,0" TextWrapping="Wrap" Text="00000000000000000000000000000000" VerticalAlignment="Top" Width="330" VerticalContentAlignment="Center" FontFamily="Courier New" FontSize="16" MaxLength="32" MaxLines="1"/>
+        <Button Content="写入数据" HorizontalAlignment="Left" Margin="30,150,0,0" VerticalAlignment="Top" Width="100" Height="40" FontSize="16"/>
+        <TextBox HorizontalAlignment="Left" Height="40" Margin="160,150,0,0" TextWrapping="Wrap" Text="00000000000000000000000000000000" VerticalAlignment="Top" Width="330" VerticalContentAlignment="Center" FontFamily="Courier New" FontSize="16" MaxLength="32" MaxLines="1"/>
+        <Button Content="读取信息" HorizontalAlignment="Left" Margin="30,210,0,0" VerticalAlignment="Top" Width="100" Height="40" FontSize="16"/>
+        <Label Content="从" HorizontalAlignment="Left" Margin="160,210,0,0" VerticalAlignment="Top" Width="40" Height="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16"/>
+        <TextBox HorizontalAlignment="Left" Height="40" Margin="200,210,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="60" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontFamily="Courier New" FontSize="16" MaxLength="4" MaxLines="1"/>
+        <Label Content="到" HorizontalAlignment="Left" Margin="260,210,0,0" VerticalAlignment="Top" Width="40" Height="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16"/>
+        <TextBox HorizontalAlignment="Left" Height="40" Margin="300,210,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="60" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontFamily="Courier New" FontSize="16" MaxLength="4" MaxLines="1"/>
+        <Label Content="当前" HorizontalAlignment="Left" Margin="380,210,0,0" VerticalAlignment="Top" Width="50" Height="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16"/>
+        <TextBox HorizontalAlignment="Left" Height="40" Margin="430,210,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="60" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontFamily="Courier New" FontSize="16" MaxLength="4" MaxLines="1"/>
+        <Button Content="写入信息" HorizontalAlignment="Left" Margin="30,270,0,0" VerticalAlignment="Top" Width="100" Height="40" FontSize="16"/>
+        <TextBox HorizontalAlignment="Left" Height="360" Margin="520,30,0,0" TextWrapping="Wrap" Text="请连接设备...&#xA;" VerticalAlignment="Top" Width="240" VerticalScrollBarVisibility="Visible"/>
+
     </Grid>
 </Window>
