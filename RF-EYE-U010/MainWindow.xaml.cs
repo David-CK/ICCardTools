@@ -30,6 +30,7 @@ namespace RF_EYE_U010
         Int32 baud = 0;
         Int16 st = 0;
         byte[] snr = new byte[4];
+        String[] info;
 
         private void ConnectBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -190,6 +191,30 @@ namespace RF_EYE_U010
             else
             {
                 txtOutput.AppendText("寻卡失败\n");
+            }
+            txtOutput.ScrollToEnd();
+        }
+
+        private void OpenFileBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Microsoft.Win32.OpenFileDialog openFileDialog = new Microsoft.Win32.OpenFileDialog();
+            openFileDialog.Multiselect = false;
+            openFileDialog.Filter = "ICD|*.icd";
+
+            if ((bool)openFileDialog.ShowDialog())
+            {
+                txtOpenFile.Text = openFileDialog.FileName;
+
+                System.IO.StreamReader streamReader = new System.IO.StreamReader(txtOpenFile.Text);
+                info = streamReader.ReadToEnd().Split('\n');
+
+                txtOutput.AppendText("打开文件成功\n");
+            }
+            else
+            {
+                txtOpenFile.Text = "";
+
+                txtOutput.AppendText("打开文件失败\n");
             }
             txtOutput.ScrollToEnd();
         }

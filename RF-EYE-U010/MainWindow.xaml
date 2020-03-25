@@ -41,8 +41,8 @@
         <TextBox x:Name="txtReadData" HorizontalAlignment="Left" Height="40" Margin="160,90,0,0" Text="00000000000000000000000000000000" VerticalAlignment="Top" Width="330" VerticalContentAlignment="Center" FontFamily="Courier New" FontSize="16" MaxLength="32" MaxLines="1" IsReadOnly="True"/>
         <Button Content="写入数据" HorizontalAlignment="Left" Margin="30,150,0,0" VerticalAlignment="Top" Width="100" Height="40" FontSize="16" Click="WriteDataBtn_Click"/>
         <TextBox x:Name="txtWriteData" HorizontalAlignment="Left" Height="40" Margin="160,150,0,0" Text="00000000000000000000000000000000" VerticalAlignment="Top" Width="330" VerticalContentAlignment="Center" FontFamily="Courier New" FontSize="16" MaxLength="32" MaxLines="1"/>
-        <Button Content="打开文件" HorizontalAlignment="Left" Margin="30,210,0,0" VerticalAlignment="Top" Width="100" Height="40" FontSize="16"/>
-        <TextBox HorizontalAlignment="Left" Margin="160,210,0,0" Text="" VerticalAlignment="Top" Width="330" Height="40" VerticalContentAlignment="Center" FontFamily="Courier New" FontSize="16" MaxLines="1" IsReadOnly="True"/>
+        <Button Content="打开文件" HorizontalAlignment="Left" Margin="30,210,0,0" VerticalAlignment="Top" Width="100" Height="40" FontSize="16" Click="OpenFileBtn_Click"/>
+        <TextBox x:Name="txtOpenFile" HorizontalAlignment="Left" Margin="160,210,0,0" Text="" VerticalAlignment="Top" Width="330" Height="40" VerticalContentAlignment="Center" FontFamily="Courier New" FontSize="16" MaxLines="1" IsReadOnly="True"/>
         <Button Content="读取信息" HorizontalAlignment="Left" Margin="30,270,0,0" VerticalAlignment="Top" Width="100" Height="40" FontSize="16"/>
         <Button Content="写入信息" HorizontalAlignment="Left" Margin="30,330,0,0" VerticalAlignment="Top" Width="100" Height="40" FontSize="16"/>
         <Button Content="|&lt;" HorizontalAlignment="Left" Margin="160,330,0,0" VerticalAlignment="Top" Width="40" Height="40" FontFamily="Courier New" FontSize="16"/>
