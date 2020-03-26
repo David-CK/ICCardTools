@@ -307,6 +307,8 @@ namespace RF_EYE_U010
                         snr2 = (UInt32)((snr[0]) | (snr[1] << 8) | (snr[2] << 16) | (snr[3] << 24));
                         txtOutput.AppendText("卡号：" + Convert.ToString(snr2) + "\n");
 
+                        int writeCnt = 0;
+
                         for (int sectorIndex = 1; sectorIndex < 16; sectorIndex++)
                         {
                             txtOutput.AppendText("\n");
@@ -347,6 +349,7 @@ namespace RF_EYE_U010
                                     st = App.rf_write(icdev, (byte)(sectorIndex * 4 + blockIndex), buffer[blockIndex]);
                                     if (st == 0)
                                     {
+                                        writeCnt += 1;
                                         txtOutput.AppendText("写入成功，区：" + sectorIndex + "，块：" + blockIndex + "\n");
                                     }
                                     else
@@ -360,6 +363,15 @@ namespace RF_EYE_U010
                                 txtOutput.AppendText("认证失败，区：" + sectorIndex + "\n");
                             }
                             txtOutput.ScrollToEnd();
+                        }
+
+                        if ((writeCnt == 45) && (cmbLine.SelectedIndex == 0))
+                        {
+                            if (line < info.Length - 2)
+                            {
+                                line += 1;
+                                txtLine.Text = Convert.ToString(line);
+                            }
                         }
                     }
                     else
@@ -377,6 +389,50 @@ namespace RF_EYE_U010
                 txtOutput.AppendText("请打开文件...\n");
             }
             txtOutput.ScrollToEnd();
+        }
+
+        private void FirstInfoBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (info != null)
+            {
+                txtLine.Text = "1";
+            }
+        }
+
+        private void PreviousInfoBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (info != null)
+            {
+                Int32 line = Convert.ToInt32(txtLine.Text);
+                line -= 1;
+                if (line < 1 || line > info.Length - 2)
+                {
+                    line = 1;
+                }
+                txtLine.Text = Convert.ToString(line);
+            }
+        }
+
+        private void NextInfoBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (info != null)
+            {
+                Int32 line = Convert.ToInt32(txtLine.Text);
+                line += 1;
+                if (line < 1 || line > info.Length - 2)
+                {
+                    line = info.Length - 2;
+                }
+                txtLine.Text = Convert.ToString(line);
+            }
+        }
+
+        private void LastInfoBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (info != null)
+            {
+                txtLine.Text = Convert.ToString(info.Length - 2);
+            }
         }
     }
 }
