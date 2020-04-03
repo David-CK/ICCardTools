@@ -7,10 +7,10 @@
         mc:Ignorable="d"
         Title="RF-EYE-U010 读写工具" Height="450" Width="800">
     <Grid>
-        <Button Content="连接设备" HorizontalAlignment="Left" Margin="30,30,0,0" VerticalAlignment="Top" Width="100" Height="40" FontSize="16" Click="ConnectBtn_Click"/>
-        <Button Content="断开设备" HorizontalAlignment="Left" Margin="160,30,0,0" VerticalAlignment="Top" Width="100" Height="40" FontSize="16" Click="DisconnectBtn_Click"/>
-        <Label Content="区" HorizontalAlignment="Left" Margin="290,30,0,0" VerticalAlignment="Top" Width="40" Height="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16"/>
-        <ComboBox x:Name="cmbSector" HorizontalAlignment="Left" Margin="330,30,0,0" VerticalAlignment="Top" Width="60" Height="40" VerticalContentAlignment="Center" FontFamily="Courier New" FontSize="16" SelectedIndex="0" SelectionChanged="SectorCmb_SelectionChanged">
+        <Button Content="连接设备" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top" Width="80" Height="30" FontSize="16" Click="ConnectBtn_Click"/>
+        <Button Content="断开设备" HorizontalAlignment="Left" Margin="120,20,0,0" VerticalAlignment="Top" Width="80" Height="30" FontSize="16" Click="DisconnectBtn_Click"/>
+        <Label Content="区" HorizontalAlignment="Left" Margin="220,20,0,0" VerticalAlignment="Top" Width="30" Height="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16"/>
+        <ComboBox x:Name="cmbSector" HorizontalAlignment="Left" Margin="250,20,0,0" VerticalAlignment="Top" Width="40" Height="30" VerticalContentAlignment="Center" FontFamily="Courier New" FontSize="16" SelectedIndex="0" SelectionChanged="SectorCmb_SelectionChanged">
             <ComboBoxItem Content="0"/>
             <ComboBoxItem Content="1"/>
             <ComboBoxItem Content="2"/>
@@ -28,8 +28,8 @@
             <ComboBoxItem Content="14"/>
             <ComboBoxItem Content="15"/>
         </ComboBox>
-        <Label Content="块" HorizontalAlignment="Left" Margin="390,30,0,0" VerticalAlignment="Top" Width="40" Height="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16"/>
-        <ComboBox x:Name="cmbBlock" HorizontalAlignment="Left" Margin="430,30,0,0" VerticalAlignment="Top" Width="60" Height="40" VerticalContentAlignment="Center" FontFamily="Courier New" FontSize="16" SelectedIndex="0" SelectionChanged="BlockCmb_SelectionChanged">
+        <Label Content="块" HorizontalAlignment="Left" Margin="310,20,0,0" VerticalAlignment="Top" Width="30" Height="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16"/>
+        <ComboBox x:Name="cmbBlock" HorizontalAlignment="Left" Margin="340,20,0,0" VerticalAlignment="Top" Width="40" Height="30" VerticalContentAlignment="Center" FontFamily="Courier New" FontSize="16" SelectedIndex="0" SelectionChanged="BlockCmb_SelectionChanged">
             <ComboBoxItem Content="0"/>
             <ComboBoxItem Content="1"/>
             <ComboBoxItem Content="2"/>
@@ -37,24 +37,41 @@
             <ComboBoxItem Content="3"/>
 -->
         </ComboBox>
-        <Button Content="读取数据" HorizontalAlignment="Left" Margin="30,90,0,0" VerticalAlignment="Top" Width="100" Height="40" FontSize="16" Click="ReadDataBtn_Click"/>
-        <TextBox x:Name="txtReadData" HorizontalAlignment="Left" Height="40" Margin="160,90,0,0" Text="00000000000000000000000000000000" VerticalAlignment="Top" Width="330" VerticalContentAlignment="Center" FontFamily="Courier New" FontSize="16" MaxLength="32" MaxLines="1" IsReadOnly="True"/>
-        <Button Content="写入数据" HorizontalAlignment="Left" Margin="30,150,0,0" VerticalAlignment="Top" Width="100" Height="40" FontSize="16" Click="WriteDataBtn_Click"/>
-        <TextBox x:Name="txtWriteData" HorizontalAlignment="Left" Height="40" Margin="160,150,0,0" Text="00000000000000000000000000000000" VerticalAlignment="Top" Width="330" VerticalContentAlignment="Center" FontFamily="Courier New" FontSize="16" MaxLength="32" MaxLines="1"/>
-        <Button Content="打开文件" HorizontalAlignment="Left" Margin="30,210,0,0" VerticalAlignment="Top" Width="100" Height="40" FontSize="16" Click="OpenFileBtn_Click"/>
-        <TextBox x:Name="txtOpenFile" HorizontalAlignment="Left" Margin="160,210,0,0" Text="" VerticalAlignment="Top" Width="330" Height="40" VerticalContentAlignment="Center" FontFamily="Courier New" FontSize="16" MaxLines="1" IsReadOnly="True"/>
-        <Button Content="读取信息" HorizontalAlignment="Left" Margin="30,270,0,0" VerticalAlignment="Top" Width="100" Height="40" FontSize="16" Click="ReadInfoBtn_Click"/>
-        <Button Content="写入信息" HorizontalAlignment="Left" Margin="30,330,0,0" VerticalAlignment="Top" Width="100" Height="40" FontSize="16" Click="WriteInfoBtn_Click"/>
-        <Button Content="|&lt;" HorizontalAlignment="Left" Margin="160,330,0,0" VerticalAlignment="Top" Width="40" Height="40" FontFamily="Courier New" FontSize="16" Click="FirstInfoBtn_Click"/>
-        <Button Content="&lt;" HorizontalAlignment="Left" Margin="205,330,0,0" VerticalAlignment="Top" Width="40" Height="40" FontFamily="Courier New" FontSize="16" Click="PreviousInfoBtn_Click"/>
-        <TextBox x:Name="txtLine" HorizontalAlignment="Left" Height="40" Margin="255,330,0,0" Text="0" VerticalAlignment="Top" Width="60" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" FontSize="16" MaxLength="4" MaxLines="1"/>
-        <Button Content="&gt;" HorizontalAlignment="Left" Margin="325,330,0,0" VerticalAlignment="Top" Width="40" Height="40" FontFamily="Courier New" FontSize="16" Click="NextInfoBtn_Click"/>
-        <Button Content="&gt;|" HorizontalAlignment="Left" Margin="370,330,0,0" VerticalAlignment="Top" Width="40" Height="40" FontFamily="Courier New" FontSize="16" Click="LastInfoBtn_Click"/>
-        <ComboBox x:Name="cmbLine" HorizontalAlignment="Left" Margin="430,330,0,0" VerticalAlignment="Top" Width="60" Height="40" VerticalContentAlignment="Center" FontSize="16" SelectedIndex="0">
+        <CheckBox Content="提示声音" HorizontalAlignment="Left" Margin="410,20,0,0" VerticalAlignment="Top" Height="30" Width="90" FontSize="16"/>
+        <Button Content="加载密钥" HorizontalAlignment="Left" Margin="20,60,0,0" VerticalAlignment="Top" Width="80" Height="30" FontSize="16"/>
+        <Label Content="密钥A" HorizontalAlignment="Left" Margin="120,60,0,0" VerticalAlignment="Top" Width="60" Height="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16"/>
+        <TextBox HorizontalAlignment="Left" Height="30" Margin="180,60,0,0" Text="FFFFFFFFFFFF" VerticalAlignment="Top" Width="130" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" FontSize="16" MaxLength="12" MaxLines="1"/>
+        <Label Content="密钥B" HorizontalAlignment="Left" Margin="310,60,0,0" VerticalAlignment="Top" Width="60" Height="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16"/>
+        <TextBox HorizontalAlignment="Left" Height="30" Margin="370,60,0,0" Text="FFFFFFFFFFFF" VerticalAlignment="Top" Width="130" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" FontSize="16" MaxLength="12" MaxLines="1"/>
+        <Button Content="读取数据" HorizontalAlignment="Left" Margin="20,100,0,0" VerticalAlignment="Top" Width="80" Height="30" FontSize="16" Click="ReadDataBtn_Click"/>
+        <TextBox x:Name="txtReadData" HorizontalAlignment="Left" Height="30" Margin="120,100,0,0" Text="00000000000000000000000000000000" VerticalAlignment="Top" Width="320" VerticalContentAlignment="Center" FontFamily="Courier New" FontSize="16" MaxLength="32" MaxLines="1" IsReadOnly="True"/>
+        <Button Content="解密" HorizontalAlignment="Left" Margin="460,100,0,0" VerticalAlignment="Top" Width="40" Height="30" FontSize="16"/>
+        <Button Content="写入数据" HorizontalAlignment="Left" Margin="20,140,0,0" VerticalAlignment="Top" Width="80" Height="30" FontSize="16" Click="WriteDataBtn_Click"/>
+        <TextBox x:Name="txtWriteData" HorizontalAlignment="Left" Height="30" Margin="120,140,0,0" Text="00000000000000000000000000000000" VerticalAlignment="Top" Width="320" VerticalContentAlignment="Center" FontFamily="Courier New" FontSize="16" MaxLength="32" MaxLines="1"/>
+        <Button Content="加密" HorizontalAlignment="Left" Margin="460,140,0,0" VerticalAlignment="Top" Width="40" Height="30" FontSize="16"/>
+        <Label Content="数据密钥" HorizontalAlignment="Left" Margin="20,180,0,0" VerticalAlignment="Top" Width="80" Height="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16"/>
+        <CheckBox Content="开启" HorizontalAlignment="Left" Margin="120,180,0,0" VerticalAlignment="Top" Height="30" Width="60" FontSize="16"/>
+        <TextBox HorizontalAlignment="Left" Height="30" Margin="200,180,0,0" Text="00000000" VerticalAlignment="Top" Width="90" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" FontSize="16" MaxLength="8" MaxLines="1"/>
+        <Button Content="打开文件" HorizontalAlignment="Left" Margin="20,220,0,0" VerticalAlignment="Top" Width="80" Height="30" FontSize="16" Click="OpenFileBtn_Click"/>
+        <TextBox x:Name="txtOpenFile" HorizontalAlignment="Left" Margin="120,220,0,0" Text="" VerticalAlignment="Top" Width="380" Height="30" VerticalContentAlignment="Center" FontFamily="Courier New" FontSize="16" MaxLines="1" IsReadOnly="True"/>
+        <Button Content="加载密钥" HorizontalAlignment="Left" Margin="20,260,0,0" VerticalAlignment="Top" Width="80" Height="30" FontSize="16"/>
+        <TextBox HorizontalAlignment="Left" Margin="120,260,0,0" Text="" VerticalAlignment="Top" Width="380" Height="30" VerticalContentAlignment="Center" FontFamily="Courier New" FontSize="16" MaxLines="1" IsReadOnly="True"/>
+        <Button Content="读取信息" HorizontalAlignment="Left" Margin="20,300,0,0" VerticalAlignment="Top" Width="80" Height="30" FontSize="16" Click="ReadInfoBtn_Click"/>
+        <Button Content="写入信息" HorizontalAlignment="Left" Margin="120,300,0,0" VerticalAlignment="Top" Width="80" Height="30" FontSize="16" Click="WriteInfoBtn_Click"/>
+        <Button Content="|&lt;" HorizontalAlignment="Left" Margin="220,300,0,0" VerticalAlignment="Top" Width="30" Height="30" FontFamily="Courier New" FontSize="16" Click="FirstInfoBtn_Click"/>
+        <Button Content="&lt;" HorizontalAlignment="Left" Margin="255,300,0,0" VerticalAlignment="Top" Width="30" Height="30" FontFamily="Courier New" FontSize="16" Click="PreviousInfoBtn_Click"/>
+        <TextBox x:Name="txtLine" HorizontalAlignment="Left" Height="30" Margin="295,300,0,0" Text="0" VerticalAlignment="Top" Width="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" FontSize="16" MaxLength="4" MaxLines="1"/>
+        <Button Content="&gt;" HorizontalAlignment="Left" Margin="355,300,0,0" VerticalAlignment="Top" Width="30" Height="30" FontFamily="Courier New" FontSize="16" Click="NextInfoBtn_Click"/>
+        <Button Content="&gt;|" HorizontalAlignment="Left" Margin="390,300,0,0" VerticalAlignment="Top" Width="30" Height="30" FontFamily="Courier New" FontSize="16" Click="LastInfoBtn_Click"/>
+        <ComboBox x:Name="cmbLine" HorizontalAlignment="Left" Margin="440,300,0,0" VerticalAlignment="Top" Width="60" Height="30" VerticalContentAlignment="Center" FontSize="16" SelectedIndex="0">
             <ComboBoxItem Content="自动"/>
             <ComboBoxItem Content="手动"/>
         </ComboBox>
-        <TextBox x:Name="txtOutput" HorizontalAlignment="Left" Height="360" Margin="520,30,0,0" Text="请连接设备...&#xA;" VerticalAlignment="Top" Width="240" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Visible" FontFamily="Courier New" FontSize="16"/>
+        <Label Content="信息密钥" HorizontalAlignment="Left" Margin="20,340,0,0" VerticalAlignment="Top" Width="80" Height="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16"/>
+        <CheckBox Content="开启" HorizontalAlignment="Left" Margin="120,340,0,0" VerticalAlignment="Top" Height="30" Width="60" FontSize="16"/>
+        <TextBox HorizontalAlignment="Left" Height="30" Margin="200,340,0,0" Text="00000000" VerticalAlignment="Top" Width="90" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" FontSize="16" MaxLength="8" MaxLines="1"/>
+        <TextBox x:Name="txtOutput" HorizontalAlignment="Left" Height="360" Margin="520,20,0,0" Text="请连接设备...&#xA;" VerticalAlignment="Top" Width="260" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Visible" FontFamily="Courier New" FontSize="16"/>
+        <StatusBar HorizontalAlignment="Left" Height="30" Margin="0,390,0,0" VerticalAlignment="Top" Width="792"/>
 
     </Grid>
 </Window>
