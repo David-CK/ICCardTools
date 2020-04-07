@@ -34,6 +34,11 @@ namespace RF_EYE_U010
             CallingConvention = CallingConvention.StdCall)]
         public static extern Int16 rf_authentication(IntPtr icdev, byte mode, byte secnr);
 
+        [DllImport("mwrf32.dll", EntryPoint = "rf_authentication_key", SetLastError = true,
+            CharSet = CharSet.Auto, ExactSpelling = false,
+            CallingConvention = CallingConvention.StdCall)]
+        public static extern Int16 rf_authentication_key(IntPtr icdev, byte mode, byte blknr, byte[] key);
+
         [DllImport("mwrf32.dll", EntryPoint = "rf_read", SetLastError = true,
             CharSet = CharSet.Auto, ExactSpelling = false,
             CallingConvention = CallingConvention.StdCall)]

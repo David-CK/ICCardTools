@@ -121,7 +121,21 @@ namespace RF_EYE_U010
                 snr2 = (UInt32)((snr[0]) | (snr[1] << 8) | (snr[2] << 16) | (snr[3] << 24));
                 txtOutput.AppendText("卡号：" + Convert.ToString(snr2) + "\n");
 
-                st = App.rf_authentication(icdev, 0, (byte)cmbSector.SelectedIndex);
+                byte[] ascKey = new byte[12];
+                byte[] hexKey = new byte[6];
+
+                if (cmbKey.SelectedIndex == 0)
+                {
+                    ascKey = Encoding.Default.GetBytes(txtKeyA.Text);
+                    App.a_hex(ascKey, hexKey, 12);
+                    st = App.rf_authentication_key(icdev, 0, (byte)(cmbSector.SelectedIndex * 4 + cmbBlock.SelectedIndex), hexKey);
+                }
+                else
+                {
+                    ascKey = Encoding.Default.GetBytes(txtKeyB.Text);
+                    App.a_hex(ascKey, hexKey, 12);
+                    st = App.rf_authentication_key(icdev, 4, (byte)(cmbSector.SelectedIndex * 4 + cmbBlock.SelectedIndex), hexKey);
+                }
                 if (st == 0)
                 {
                     txtOutput.AppendText("认证成功\n");
@@ -168,7 +182,21 @@ namespace RF_EYE_U010
                 snr2 = (UInt32)((snr[0]) | (snr[1] << 8) | (snr[2] << 16) | (snr[3] << 24));
                 txtOutput.AppendText("卡号：" + Convert.ToString(snr2) + "\n");
 
-                st = App.rf_authentication(icdev, 0, (byte)cmbSector.SelectedIndex);
+                byte[] ascKey = new byte[12];
+                byte[] hexKey = new byte[6];
+
+                if (cmbKey.SelectedIndex == 0)
+                {
+                    ascKey = Encoding.Default.GetBytes(txtKeyA.Text);
+                    App.a_hex(ascKey, hexKey, 12);
+                    st = App.rf_authentication_key(icdev, 0, (byte)(cmbSector.SelectedIndex * 4 + cmbBlock.SelectedIndex), hexKey);
+                }
+                else
+                {
+                    ascKey = Encoding.Default.GetBytes(txtKeyB.Text);
+                    App.a_hex(ascKey, hexKey, 12);
+                    st = App.rf_authentication_key(icdev, 4, (byte)(cmbSector.SelectedIndex * 4 + cmbBlock.SelectedIndex), hexKey);
+                }
                 if (st == 0)
                 {
                     txtOutput.AppendText("认证成功\n");
