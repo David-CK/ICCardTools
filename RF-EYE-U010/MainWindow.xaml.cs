@@ -228,6 +228,7 @@ namespace RF_EYE_U010
             {
                 txtOutput.AppendText("请开启数据密钥\n");
             }
+            txtOutput.ScrollToEnd();
         }
 
         private void DecryptBtn_Click(object sender, RoutedEventArgs e)
@@ -261,6 +262,7 @@ namespace RF_EYE_U010
             {
                 txtOutput.AppendText("请开启数据密钥\n");
             }
+            txtOutput.ScrollToEnd();
         }
 
         private void OpenFileBtn_Click(object sender, RoutedEventArgs e)
