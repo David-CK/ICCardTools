@@ -46,6 +46,7 @@ namespace RF_EYE_U010
                 if (icdev.ToInt32() > 0)
                 {
                     txtOutput.AppendText("设备连接成功\n");
+                    txtConnectStatus.Text = "已经连接设备";
                 }
                 else
                 {
@@ -67,6 +68,7 @@ namespace RF_EYE_U010
                     icdev = IntPtr.Zero;
 
                     txtOutput.AppendText("设备断开成功\n");
+                    txtConnectStatus.Text = "已经断开设备";
                 }
                 else
                 {
