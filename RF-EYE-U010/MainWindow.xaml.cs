@@ -319,6 +319,46 @@ namespace RF_EYE_U010
             txtOutput.ScrollToEnd();
         }
 
+        private void LoadKeyBtn_Click(object sender, RoutedEventArgs e)
+        {
+            txtOutput.AppendText("\n");
+
+            Microsoft.Win32.OpenFileDialog openFileDialog = new Microsoft.Win32.OpenFileDialog();
+            openFileDialog.Multiselect = false;
+            openFileDialog.Filter = "ICK|*.ick";
+
+            if ((bool)openFileDialog.ShowDialog())
+            {
+                txtLoadKey.Text = openFileDialog.FileName;
+
+                System.IO.StreamReader streamReader = new System.IO.StreamReader(txtLoadKey.Text, Encoding.Unicode, true);
+
+                string[] keySet = streamReader.ReadToEnd().Split('\n');
+
+                char[] sp = { '\t', '\r' };
+
+                for (int i = 0; i < 16; i++)
+                {
+                    string[] key = keySet[i + 1].Split(sp);
+
+                    byte[] keyA = Encoding.Default.GetBytes(key[1]);
+                    byte[] keyB = Encoding.Default.GetBytes(key[2]);
+
+                    App.rf_load_key_hex(icdev, 0, (byte)i, keyA);
+                    App.rf_load_key_hex(icdev, 4, (byte)i, keyB);
+                }
+
+                txtOutput.AppendText("加载密钥成功\n");
+            }
+            else
+            {
+                txtLoadKey.Text = "";
+
+                txtOutput.AppendText("加载密钥失败\n");
+            }
+            txtOutput.ScrollToEnd();
+        }
+
         private void ReadInfoBtn_Click(object sender, RoutedEventArgs e)
         {
             txtOutput.AppendText("\n");
