@@ -306,6 +306,15 @@ namespace RF_EYE_U010
                 snr2 = (UInt32)((snr[0]) | (snr[1] << 8) | (snr[2] << 16) | (snr[3] << 24));
                 txtOutput.AppendText("卡号：" + Convert.ToString(snr2) + "\n");
 
+                byte[] ascInfoKey = new byte[16];
+                byte[] hexInfoKey = new byte[8];
+
+                if ((bool)chkInfoKey.IsChecked)
+                {
+                    ascInfoKey = Encoding.Default.GetBytes(txtInfoKey.Text);
+                    App.a_hex(ascInfoKey, hexInfoKey, 16);
+                }
+
                 for (int sectorIndex = 1; sectorIndex < 16; sectorIndex++)
                 {
                     txtOutput.AppendText("\n");
@@ -323,7 +332,18 @@ namespace RF_EYE_U010
                             st = App.rf_read(icdev, (byte)(sectorIndex * 4 + blockIndex), buff);
                             if (st == 0)
                             {
-                                buff.CopyTo(buffer, blockIndex * 16);
+                                if ((bool)chkInfoKey.IsChecked)
+                                {
+                                    byte[] decrypt = new byte[16];
+
+                                    App.rf_decrypt(hexInfoKey, buff, 16, decrypt);
+                                    
+                                    decrypt.CopyTo(buffer, blockIndex * 16);
+                                }
+                                else
+                                {
+                                    buff.CopyTo(buffer, blockIndex * 16);
+                                }
                                 txtOutput.AppendText("读取成功，区：" + sectorIndex + "，块：" + blockIndex + "\n");
                             }
                             else
@@ -375,6 +395,15 @@ namespace RF_EYE_U010
                         snr2 = (UInt32)((snr[0]) | (snr[1] << 8) | (snr[2] << 16) | (snr[3] << 24));
                         txtOutput.AppendText("卡号：" + Convert.ToString(snr2) + "\n");
 
+                        byte[] ascInfoKey = new byte[16];
+                        byte[] hexInfoKey = new byte[8];
+
+                        if ((bool)chkInfoKey.IsChecked)
+                        {
+                            ascInfoKey = Encoding.Default.GetBytes(txtInfoKey.Text);
+                            App.a_hex(ascInfoKey, hexInfoKey, 16);
+                        }
+
                         int writeCnt = 0;
 
                         for (int sectorIndex = 1; sectorIndex < 16; sectorIndex++)
@@ -414,7 +443,18 @@ namespace RF_EYE_U010
                                         cnt = 0;
                                     }
 
-                                    st = App.rf_write(icdev, (byte)(sectorIndex * 4 + blockIndex), buffer[blockIndex]);
+                                    if ((bool)chkInfoKey.IsChecked)
+                                    {
+                                        byte[] encrypt = new byte[16];
+
+                                        App.rf_encrypt(hexInfoKey, buffer[blockIndex], 16, encrypt);
+
+                                        st = App.rf_write(icdev, (byte)(sectorIndex * 4 + blockIndex), encrypt);
+                                    }
+                                    else
+                                    {
+                                        st = App.rf_write(icdev, (byte)(sectorIndex * 4 + blockIndex), buffer[blockIndex]);
+                                    }
                                     if (st == 0)
                                     {
                                         writeCnt += 1;

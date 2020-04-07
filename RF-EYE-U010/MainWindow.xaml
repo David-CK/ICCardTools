@@ -68,8 +68,8 @@
             <ComboBoxItem Content="手动"/>
         </ComboBox>
         <Label Content="信息密钥" HorizontalAlignment="Left" Margin="20,340,0,0" VerticalAlignment="Top" Width="80" Height="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16"/>
-        <CheckBox Content="开启" HorizontalAlignment="Left" Margin="120,340,0,0" VerticalAlignment="Top" Height="30" Width="60" FontSize="16"/>
-        <TextBox HorizontalAlignment="Left" Height="30" Margin="200,340,0,0" Text="00000000" VerticalAlignment="Top" Width="90" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" FontSize="16" MaxLength="8" MaxLines="1"/>
+        <CheckBox x:Name="chkInfoKey" Content="开启" HorizontalAlignment="Left" Margin="120,340,0,0" VerticalAlignment="Top" Height="30" Width="60" FontSize="16"/>
+        <TextBox x:Name="txtInfoKey" HorizontalAlignment="Left" Height="30" Margin="200,340,0,0" Text="0000000000000000" VerticalAlignment="Top" Width="170" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" FontSize="16" MaxLength="16" MaxLines="1"/>
         <TextBox x:Name="txtOutput" HorizontalAlignment="Left" Height="360" Margin="520,20,0,0" Text="请连接设备...&#xA;" VerticalAlignment="Top" Width="260" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Visible" FontFamily="Courier New" FontSize="16"/>
         <StatusBar HorizontalAlignment="Left" Height="40" Margin="0,380,0,0" VerticalAlignment="Top" Width="792">
             <TextBlock x:Name="txtConnectStatus" Width="100" Height="30" Text="没有连接设备" FontSize="16"/>
