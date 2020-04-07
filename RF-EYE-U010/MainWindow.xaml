@@ -10,7 +10,7 @@
         <Button Content="连接设备" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top" Width="80" Height="30" FontSize="16" Click="ConnectBtn_Click"/>
         <Button Content="断开设备" HorizontalAlignment="Left" Margin="120,20,0,0" VerticalAlignment="Top" Width="80" Height="30" FontSize="16" Click="DisconnectBtn_Click"/>
         <Label Content="区" HorizontalAlignment="Left" Margin="220,20,0,0" VerticalAlignment="Top" Width="30" Height="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16"/>
-        <ComboBox x:Name="cmbSector" HorizontalAlignment="Left" Margin="250,20,0,0" VerticalAlignment="Top" Width="40" Height="30" VerticalContentAlignment="Center" FontFamily="Courier New" FontSize="16" SelectedIndex="0" SelectionChanged="SectorCmb_SelectionChanged">
+        <ComboBox x:Name="cmbSector" HorizontalAlignment="Left" Margin="250,20,0,0" VerticalAlignment="Top" Width="50" Height="30" VerticalContentAlignment="Center" FontFamily="Courier New" FontSize="16" SelectedIndex="0" SelectionChanged="SectorCmb_SelectionChanged">
             <ComboBoxItem Content="0"/>
             <ComboBoxItem Content="1"/>
             <ComboBoxItem Content="2"/>
@@ -29,7 +29,7 @@
             <ComboBoxItem Content="15"/>
         </ComboBox>
         <Label Content="块" HorizontalAlignment="Left" Margin="310,20,0,0" VerticalAlignment="Top" Width="30" Height="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16"/>
-        <ComboBox x:Name="cmbBlock" HorizontalAlignment="Left" Margin="340,20,0,0" VerticalAlignment="Top" Width="40" Height="30" VerticalContentAlignment="Center" FontFamily="Courier New" FontSize="16" SelectedIndex="0" SelectionChanged="BlockCmb_SelectionChanged">
+        <ComboBox x:Name="cmbBlock" HorizontalAlignment="Left" Margin="340,20,0,0" VerticalAlignment="Top" Width="50" Height="30" VerticalContentAlignment="Center" FontFamily="Courier New" FontSize="16" SelectedIndex="0" SelectionChanged="BlockCmb_SelectionChanged">
             <ComboBoxItem Content="0"/>
             <ComboBoxItem Content="1"/>
             <ComboBoxItem Content="2"/>
