@@ -58,5 +58,20 @@ namespace RF_EYE_U010
             CharSet = CharSet.Auto, ExactSpelling = false,
             CallingConvention = CallingConvention.StdCall)]
         public static extern Int16 hex_a(byte[] hex, byte[] asc, Int16 len);
+
+        [DllImport("mwrf32.dll", EntryPoint = "a_hex", SetLastError = true,
+            CharSet = CharSet.Auto, ExactSpelling = false,
+            CallingConvention = CallingConvention.StdCall)]
+        public static extern Int16 a_hex(byte[] asc, byte[] hex, Int16 len);
+
+        [DllImport("mwrf32.dll", EntryPoint = "rf_encrypt", SetLastError = true,
+            CharSet = CharSet.Auto, ExactSpelling = false,
+            CallingConvention = CallingConvention.StdCall)]
+        public static extern Int16 rf_encrypt(byte[] key, byte[] src, UInt16 len, byte[] dest);
+
+        [DllImport("mwrf32.dll", EntryPoint = "rf_decrypt", SetLastError = true,
+            CharSet = CharSet.Auto, ExactSpelling = false,
+            CallingConvention = CallingConvention.StdCall)]
+        public static extern Int16 rf_decrypt(byte[] key, byte[] src, UInt16 len, byte[] dest);
     }
 }

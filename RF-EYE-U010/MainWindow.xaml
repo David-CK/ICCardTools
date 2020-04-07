@@ -45,13 +45,13 @@
         <TextBox HorizontalAlignment="Left" Height="30" Margin="370,60,0,0" Text="FFFFFFFFFFFF" VerticalAlignment="Top" Width="130" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" FontSize="16" MaxLength="12" MaxLines="1"/>
         <Button Content="读取数据" HorizontalAlignment="Left" Margin="20,100,0,0" VerticalAlignment="Top" Width="80" Height="30" FontSize="16" Click="ReadDataBtn_Click"/>
         <TextBox x:Name="txtReadData" HorizontalAlignment="Left" Height="30" Margin="120,100,0,0" Text="00000000000000000000000000000000" VerticalAlignment="Top" Width="320" VerticalContentAlignment="Center" FontFamily="Courier New" FontSize="16" MaxLength="32" MaxLines="1" IsReadOnly="True"/>
-        <Button Content="解密" HorizontalAlignment="Left" Margin="460,100,0,0" VerticalAlignment="Top" Width="40" Height="30" FontSize="16"/>
+        <Button Content="解密" HorizontalAlignment="Left" Margin="460,100,0,0" VerticalAlignment="Top" Width="40" Height="30" FontSize="16" Click="DecryptBtn_Click"/>
         <Button Content="写入数据" HorizontalAlignment="Left" Margin="20,140,0,0" VerticalAlignment="Top" Width="80" Height="30" FontSize="16" Click="WriteDataBtn_Click"/>
         <TextBox x:Name="txtWriteData" HorizontalAlignment="Left" Height="30" Margin="120,140,0,0" Text="00000000000000000000000000000000" VerticalAlignment="Top" Width="320" VerticalContentAlignment="Center" FontFamily="Courier New" FontSize="16" MaxLength="32" MaxLines="1"/>
-        <Button Content="加密" HorizontalAlignment="Left" Margin="460,140,0,0" VerticalAlignment="Top" Width="40" Height="30" FontSize="16"/>
+        <Button Content="加密" HorizontalAlignment="Left" Margin="460,140,0,0" VerticalAlignment="Top" Width="40" Height="30" FontSize="16" Click="EncryptBtn_Click"/>
         <Label Content="数据密钥" HorizontalAlignment="Left" Margin="20,180,0,0" VerticalAlignment="Top" Width="80" Height="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16"/>
-        <CheckBox Content="开启" HorizontalAlignment="Left" Margin="120,180,0,0" VerticalAlignment="Top" Height="30" Width="60" FontSize="16"/>
-        <TextBox HorizontalAlignment="Left" Height="30" Margin="200,180,0,0" Text="00000000" VerticalAlignment="Top" Width="90" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" FontSize="16" MaxLength="8" MaxLines="1"/>
+        <CheckBox x:Name="chkDataKey" Content="开启" HorizontalAlignment="Left" Margin="120,180,0,0" VerticalAlignment="Top" Height="30" Width="60" FontSize="16"/>
+        <TextBox x:Name="txtDataKey" HorizontalAlignment="Left" Height="30" Margin="200,180,0,0" Text="0000000000000000" VerticalAlignment="Top" Width="170" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" FontSize="16" MaxLength="16" MaxLines="1"/>
         <Button Content="打开文件" HorizontalAlignment="Left" Margin="20,220,0,0" VerticalAlignment="Top" Width="80" Height="30" FontSize="16" Click="OpenFileBtn_Click"/>
         <TextBox x:Name="txtOpenFile" HorizontalAlignment="Left" Margin="120,220,0,0" Text="" VerticalAlignment="Top" Width="380" Height="30" VerticalContentAlignment="Center" FontFamily="Courier New" FontSize="16" MaxLines="1" IsReadOnly="True"/>
         <Button Content="加载密钥" HorizontalAlignment="Left" Margin="20,260,0,0" VerticalAlignment="Top" Width="80" Height="30" FontSize="16"/>

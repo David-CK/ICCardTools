@@ -197,6 +197,72 @@ namespace RF_EYE_U010
             txtOutput.ScrollToEnd();
         }
 
+        private void EncryptBtn_Click(object sender, RoutedEventArgs e)
+        {
+            txtOutput.AppendText("\n");
+
+            if ((bool)chkDataKey.IsChecked)
+            {
+                byte[] ascDataKey = new byte[16];
+                byte[] hexDataKey = new byte[8];
+
+                byte[] ascDataBuff = new byte[32];
+                byte[] hexDataBuff = new byte[16];
+
+                byte[] ascEncryptBuff = new byte[32];
+                byte[] hexEncryptBuff = new byte[16];
+
+                ascDataKey = Encoding.Default.GetBytes(txtDataKey.Text);
+                App.a_hex(ascDataKey, hexDataKey, 16);
+
+                ascDataBuff = Encoding.Default.GetBytes(txtWriteData.Text);
+                App.a_hex(ascDataBuff, hexDataBuff, 32);
+
+                App.rf_encrypt(hexDataKey, hexDataBuff, 16, hexEncryptBuff);
+                App.hex_a(hexEncryptBuff, ascEncryptBuff, 16);
+
+                txtWriteData.Text = Encoding.Default.GetString(ascEncryptBuff);
+                txtOutput.AppendText("数据加密成功\n");
+            }
+            else
+            {
+                txtOutput.AppendText("请开启数据密钥\n");
+            }
+        }
+
+        private void DecryptBtn_Click(object sender, RoutedEventArgs e)
+        {
+            txtOutput.AppendText("\n");
+
+            if ((bool)chkDataKey.IsChecked)
+            {
+                byte[] ascDataKey = new byte[16];
+                byte[] hexDataKey = new byte[8];
+
+                byte[] ascDataBuff = new byte[32];
+                byte[] hexDataBuff = new byte[16];
+
+                byte[] ascDecryptBuff = new byte[32];
+                byte[] hexDecryptBuff = new byte[16];
+
+                ascDataKey = Encoding.Default.GetBytes(txtDataKey.Text);
+                App.a_hex(ascDataKey, hexDataKey, 16);
+
+                ascDataBuff = Encoding.Default.GetBytes(txtReadData.Text);
+                App.a_hex(ascDataBuff, hexDataBuff, 32);
+
+                App.rf_decrypt(hexDataKey, hexDataBuff, 16, hexDecryptBuff);
+                App.hex_a(hexDecryptBuff, ascDecryptBuff, 16);
+
+                txtReadData.Text = Encoding.Default.GetString(ascDecryptBuff);
+                txtOutput.AppendText("数据解密成功\n");
+            }
+            else
+            {
+                txtOutput.AppendText("请开启数据密钥\n");
+            }
+        }
+
         private void OpenFileBtn_Click(object sender, RoutedEventArgs e)
         {
             txtOutput.AppendText("\n");
