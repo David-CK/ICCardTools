@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:RF_EYE_U010"
         mc:Ignorable="d"
         Title="RF-EYE-U010 读写工具" Height="450" Width="800">
-    <Grid>
+    <Grid Width="780" Height="410">
         <Button Content="连接设备" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top" Width="80" Height="30" FontSize="16" Click="ConnectBtn_Click"/>
         <Button Content="断开设备" HorizontalAlignment="Left" Margin="120,20,0,0" VerticalAlignment="Top" Width="80" Height="30" FontSize="16" Click="DisconnectBtn_Click"/>
         <Label Content="区" HorizontalAlignment="Left" Margin="220,20,0,0" VerticalAlignment="Top" Width="30" Height="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16"/>
@@ -74,8 +74,11 @@
         <CheckBox x:Name="chkInfoKey" Content="开启" HorizontalAlignment="Left" Margin="120,340,0,0" VerticalAlignment="Top" Height="30" Width="60" FontSize="16"/>
         <TextBox x:Name="txtInfoKey" HorizontalAlignment="Left" Height="30" Margin="200,340,0,0" Text="0000000000000000" VerticalAlignment="Top" Width="170" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Courier New" FontSize="16" MaxLength="16" MaxLines="1"/>
         <TextBox x:Name="txtOutput" HorizontalAlignment="Left" Height="360" Margin="520,20,0,0" Text="请连接设备...&#xA;" VerticalAlignment="Top" Width="260" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Visible" FontFamily="Courier New" FontSize="16"/>
-        <StatusBar HorizontalAlignment="Left" Height="40" Margin="0,380,0,0" VerticalAlignment="Top" Width="792">
-            <TextBlock x:Name="txtConnectStatus" Width="100" Height="30" Text="没有连接设备" FontSize="16"/>
+        <StatusBar HorizontalAlignment="Left" Height="30" Margin="0,380,0,0" VerticalAlignment="Top" Width="780">
+            <TextBlock x:Name="txtConnectStatus" Width="100" Height="24" VerticalAlignment="Center" Text="没有连接设备" FontSize="16"/>
+            <Button Width="50" Height="24" VerticalAlignment="Center" Margin="340,0,0,0" Content="开卡" FontSize="16"/>
+            <Button Width="50" Height="24" VerticalAlignment="Center" Margin="130,0,0,0" Content="读卡" FontSize="16"/>
+            <Button Width="50" Height="24" VerticalAlignment="Center" Margin="20,0,0,0" Content="写卡" FontSize="16"/>
         </StatusBar>
 
     </Grid>
