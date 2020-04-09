@@ -612,5 +612,29 @@ namespace RF_EYE_U010
                 txtLine.Text = Convert.ToString(info.Length - 2);
             }
         }
+
+        private void Expander_Expanded(object sender, RoutedEventArgs e)
+        {
+            Application.Current.MainWindow.Width = 1000;
+            Application.Current.MainWindow.Height = 780;
+            mainGrid.Width = 980;
+            mainGrid.Height = 740;
+            mainExpander.Width = 980;
+            mainExpander.Height = 360;
+            mainStatusBar.Width = 880;
+            txtOutput.Width = 460;
+        }
+
+        private void Expander_Collapsed(object sender, RoutedEventArgs e)
+        {
+            Application.Current.MainWindow.Width = 800;
+            Application.Current.MainWindow.Height = 450;
+            mainGrid.Width = 780;
+            mainGrid.Height = 410;
+            mainExpander.Width = 100;
+            mainExpander.Height = 30;
+            mainStatusBar.Width = 680;
+            txtOutput.Width = 260;
+        }
     }
 }
