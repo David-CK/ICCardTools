@@ -636,5 +636,183 @@ namespace RF_EYE_U010
             mainStatusBar.Width = 680;
             txtOutput.Width = 260;
         }
+
+        private void OpenCardBtn_Click(object sender, RoutedEventArgs e)
+        {
+            txtOutput.AppendText("\n");
+
+            st = App.rf_card(icdev, 0, snr);
+            if (st == 0)
+            {
+                txtOutput.AppendText("寻卡成功\n");
+
+                byte[] snr1 = new byte[8];
+                App.hex_a(snr, snr1, 4);
+                txtOutput.AppendText("卡号：" + System.Text.Encoding.Default.GetString(snr1) + "\n");
+
+                UInt32 snr2;
+                snr2 = (UInt32)((snr[0]) | (snr[1] << 8) | (snr[2] << 16) | (snr[3] << 24));
+                txtOutput.AppendText("卡号：" + Convert.ToString(snr2) + "\n");
+
+                //byte[] databuff3 = { 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0x07, 0x80, 0x69, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF };
+                byte[] databuff3 = { 0xFF, 0xFF, 0xFF, 0xF0, 0xF1, 0xF2, 0xFF, 0x07, 0x80, 0x69, 0xFF, 0xFF, 0xFF, 0xF3, 0xF4, 0xF5 };
+
+                for (int sectorIndex = 0; sectorIndex < 16; sectorIndex++)
+                {
+                    txtOutput.AppendText("\n");
+
+                    st = App.rf_authentication(icdev, 0, (byte)sectorIndex);
+                    if (st == 0)
+                    {
+                        txtOutput.AppendText("认证成功，区：" + sectorIndex + "\n");
+
+                        st = App.rf_write(icdev, (byte)(sectorIndex * 4 + 3), databuff3);
+                        if (st == 0)
+                        {
+                            txtOutput.AppendText("写入成功，区：" + sectorIndex + "\n");
+                        }
+                        else
+                        {
+                            txtOutput.AppendText("写入失败，区：" + sectorIndex + "\n");
+                        }
+                    }
+                    else
+                    {
+                        txtOutput.AppendText("认证失败，区：" + sectorIndex + "\n");
+                    }
+                    txtOutput.ScrollToEnd();
+                }
+            }
+            else
+            {
+                txtOutput.AppendText("寻卡失败\n");
+            }
+            txtOutput.ScrollToEnd();
+        }
+
+        private void ReadCardBtn_Click(object sender, RoutedEventArgs e)
+        {
+            txtOutput.AppendText("\n");
+
+            st = App.rf_card(icdev, 0, snr);
+            if (st == 0)
+            {
+                txtOutput.AppendText("寻卡成功\n");
+
+                byte[] snr1 = new byte[8];
+                App.hex_a(snr, snr1, 4);
+                txtOutput.AppendText("卡号：" + System.Text.Encoding.Default.GetString(snr1) + "\n");
+
+                UInt32 snr2;
+                snr2 = (UInt32)((snr[0]) | (snr[1] << 8) | (snr[2] << 16) | (snr[3] << 24));
+                txtOutput.AppendText("卡号：" + Convert.ToString(snr2) + "\n");
+
+                for (int sectorIndex = 0; sectorIndex < 16; sectorIndex++)
+                {
+                    txtOutput.AppendText("\n");
+
+                    st = App.rf_authentication(icdev, 0, (byte)sectorIndex);
+                    if (st == 0)
+                    {
+                        txtOutput.AppendText("认证成功，区：" + sectorIndex + "\n");
+
+                        byte[] databuff = new byte[32];
+
+                        for (int blockIndex = 0; blockIndex < 4; blockIndex++)
+                        {
+                            st = App.rf_read_hex(icdev, (byte)(sectorIndex * 4 + blockIndex), databuff);
+                            if (st == 0)
+                            {
+                                TextBox txtCard = FindName("txtCard" + sectorIndex.ToString("X") + blockIndex.ToString("X")) as TextBox;
+                                txtCard.Text = Encoding.Default.GetString(databuff);
+
+                                txtOutput.AppendText("读取成功，区：" + sectorIndex + "，块：" + blockIndex + "\n");
+                            }
+                            else
+                            {
+                                txtOutput.AppendText("读取失败，区：" + sectorIndex + "，块：" + blockIndex + "\n");
+                            }
+                        }
+                    }
+                    else
+                    {
+                        txtOutput.AppendText("认证失败，区：" + sectorIndex + "\n");
+                    }
+                    txtOutput.ScrollToEnd();
+                }
+            }
+            else
+            {
+                txtOutput.AppendText("寻卡失败\n");
+            }
+            txtOutput.ScrollToEnd();
+        }
+
+        private void WriteCardBtn_Click(object sender, RoutedEventArgs e)
+        {
+            txtOutput.AppendText("\n");
+
+            st = App.rf_card(icdev, 0, snr);
+            if (st == 0)
+            {
+                txtOutput.AppendText("寻卡成功\n");
+
+                byte[] snr1 = new byte[8];
+                App.hex_a(snr, snr1, 4);
+                txtOutput.AppendText("卡号：" + System.Text.Encoding.Default.GetString(snr1) + "\n");
+
+                UInt32 snr2;
+                snr2 = (UInt32)((snr[0]) | (snr[1] << 8) | (snr[2] << 16) | (snr[3] << 24));
+                txtOutput.AppendText("卡号：" + Convert.ToString(snr2) + "\n");
+
+                byte[] databuff0 = { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
+                byte[] databuff3 = { 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0x07, 0x80, 0x69, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF };
+
+                for (int sectorIndex = 0; sectorIndex < 16; sectorIndex++)
+                {
+                    txtOutput.AppendText("\n");
+
+                    st = App.rf_authentication(icdev, 0, (byte)sectorIndex);
+                    if (st == 0)
+                    {
+                        txtOutput.AppendText("认证成功，区：" + sectorIndex + "\n");
+
+                        for (int blockIndex = 0; blockIndex < 4; blockIndex++)
+                        {
+                            if (sectorIndex == 0 && blockIndex == 0)
+                            {
+                                continue;
+                            }
+                            if (blockIndex == 3)
+                            {
+                                st = App.rf_write(icdev, (byte)(sectorIndex * 4 + blockIndex), databuff3);
+                            }
+                            else
+                            {
+                                st = App.rf_write(icdev, (byte)(sectorIndex * 4 + blockIndex), databuff0);
+                            }
+                            if (st == 0)
+                            {
+                                txtOutput.AppendText("写入成功，区：" + sectorIndex + "，块：" + blockIndex + "\n");
+                            }
+                            else
+                            {
+                                txtOutput.AppendText("写入失败，区：" + sectorIndex + "，块：" + blockIndex + "\n");
+                            }
+                        }
+                    }
+                    else
+                    {
+                        txtOutput.AppendText("认证失败，区：" + sectorIndex + "\n");
+                    }
+                    txtOutput.ScrollToEnd();
+                }
+            }
+            else
+            {
+                txtOutput.AppendText("寻卡失败\n");
+            }
+            txtOutput.ScrollToEnd();
+        }
     }
 }

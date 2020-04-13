@@ -160,9 +160,9 @@
         </Expander>
         <StatusBar x:Name="mainStatusBar" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="660" Margin="120,380,0,0">
             <TextBlock x:Name="txtConnectStatus" Width="100" Height="24" Text="没有连接设备" FontSize="16"/>
-            <Button Width="50" Height="24" Margin="90,0,0,0" Content="开卡" FontSize="16"/>
-            <Button Width="50" Height="24" Margin="10,0,0,0" Content="读卡" FontSize="16"/>
-            <Button Width="50" Height="24" Margin="10,0,0,0" Content="写卡" FontSize="16"/>
+            <Button Width="50" Height="24" Margin="90,0,0,0" Content="开卡" FontSize="16" Click="OpenCardBtn_Click"/>
+            <Button Width="50" Height="24" Margin="10,0,0,0" Content="读卡" FontSize="16" Click="ReadCardBtn_Click"/>
+            <Button Width="50" Height="24" Margin="10,0,0,0" Content="写卡" FontSize="16" Click="WriteCardBtn_Click"/>
         </StatusBar>
 
     </Grid>
